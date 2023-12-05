@@ -1,0 +1,88 @@
+LAMBDA EXPRESSION
+==================
+
+what is the lambda expression?
+------------------------------
+Lamda exp is the first step towards functional programming(OOP)
+- A lambda expression is an anonymous (Nameless)function
+-function without name,without return types and without modifier.
+-Lambda exp/function doesn't belong to any class
+-provide a clear and concise wau to write code
+- we use lambda exp to provide implementation to the method of a function interface (userdefined or built- in /predefined)
+
+--
+functional interface provides reference to the lambda exp.
+
+SYNTAX
+=============
+(Paramter-list)-{body}
+
+========================
+WITHOUT LAMBDA // REGULAR WAY TO IMPLEMENT FUNCTIONAL INTERFACE
+===============================================================
+package com.function;
+
+@FunctionalInterface
+interface MyInterfaceWithoutLambda
+{
+	public void test();
+}
+public class LambdaExp  implements MyInterfaceWithoutLambda{
+
+	public static void main(String[] args) {
+		LambdaExp l=new LambdaExp();
+		l.test();
+	}
+
+	@Override
+	public void test() {
+		// TODO Auto-generated method stub
+		System.out.println("this is normal way to call method...");
+	}
+}
+
+===============================
+WITH LAMBDA EXPRESSION
+============================
+
+package com.function;
+
+
+@FunctionalInterface
+interface MyInterfaceWithLambda
+{
+	public void test();
+}
+public class LambdaExp  {
+
+	public static void main(String[] args) {
+		MyInterfaceWithLambda ref=()->{
+			System.out.println("this is lambda exp to call method...");
+		};
+		
+		ref.test();
+	}
+}
+
+======================
+ZERO PARAMTERS
+--------------
+()->System.out.println("Zero Parameters Lambda");// {} optional when u have single line of code
+()->{System.out.println("Zero Parameters Lambda");}
+One Parameter
+---------------
+(param)-> System.out.println("One Parameter"+parameter);
+param->System.out.println("One Parameter"+parameter);
+	if you have use one paramter () is optional
+
+Multiple parameter
+--------------
+(p1,p2)->System.out.println("multippel Parameter"+p1+p2);
+
+(Player p)->System.out.println("One Parameter"+p.getName());
+
+===================
+Lambda Exp with a return a value
+
+a->{return a.lowerCase()}; // (a,b)->{return a*b;};
+a->a.toLowerCase();//       (a,b)->a*b;

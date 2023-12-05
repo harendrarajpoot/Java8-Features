@@ -1,0 +1,82 @@
+JAVA8 FUCNTIONAL INTERFACE
+============================
+Java 8 has built in function interface..
+Predicate-> test()    BiPredicate->test()
+function->apply()     BiFunction -apply()
+consumer->accept()    BiConsumer-> accept()
+Supplier->get()
+
+1.PredicateInterface ->test()
+==================
+ The predicate interface has na abstract method test which gives a boolean value as a result for the specified argumenet
+
+public interface Predicate
+{
+public boolean test(T s);
+}
+
+Predicate p=(str)->(str!=null && s.length()>0);
+System.out.println("Predicate="+p.test("hello"));//true
+System.out.println("Predicate="+p.test(null));//false
+System.out.println("Predicate="+p.test(""));//false
+
+
+====================================
+
+2.Function Interface ->apply()
+===================
+The Function interface has na abstract method apply() which take argumenet of type T and return a result type R
+
+public interface Function
+{
+public R apply(T t);
+}
+
+                 //  input arg ,Return Value
+		Function<String, Integer> function=(str)->str.length();
+		System.out.println("function="+function.apply("abc"));// 3
+		
+		// input arg ,Return Value
+		Function<String, Boolean> function2=str->(str!=null && str.length()>0);
+		System.out.println("function="+function2.apply("abc"));// true
+		System.out.println("function="+function2.apply(""));// false
+		System.out.println("function="+function2.apply(null));// false
+
+===========================================
+3.Consumer Interface->accept()
+====================
+
+THe Consumer interface has only one single method called accept() . it accept a single argument of any data type but does not return any result
+
+public interface Consumer
+{
+public void accept(T t);
+}
+
+		// input arg
+		Consumer<String> consumer =str->System.out.println(str);
+		consumer.accept("Hello");//hello
+==================================================
+4.Supplier Interface--> get()
+================================
+A Supplier interface has only one single method called get(). accept any argument and returns an object of any data type.
+
+public interface Function
+{
+public T get();
+}
+
+Supplier<Date> supp=()->new Date();
+System.out.println(supp.get());// get current date
+
+=====================================================
+5. UnaryOperator Interface-->apply();
+-------------------------------------
+A UnaryOperator Interface has as single abstract method take a argument and return same type of data.
+
+public interface UnaryOperator extent Function
+{
+public T apply(T t);
+}
+		UnaryOperator<Integer> un=n->n*n;
+		System.out.println("UnaryOperator Extend to Function Interface->"+un.apply(5));//25

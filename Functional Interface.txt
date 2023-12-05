@@ -1,0 +1,51 @@
+Functional Interface
+=======================
+
+Functional Interface can have only single abstract method (SAM)
+
+
+@FunctionalInterface// it is not compulsory to use the annotaation
+public interface MyInterface
+{
+public void print();
+}
+
+NOTE
+=====
+
+Function Interface can have any nuber of final satic variables default methods,static methods
+
+
+@FunctionalInterface// it is not compulsory to use the annotaation
+public interface MyInterface
+{
+public void print();
+}
+
+
+@FunctionalInterface// gettting errro bcoz functional interface contain only SAM 
+public interface ChildInterface extend MyInterface
+{
+public void second();
+}
+
+@FunctionalInterface//  no errro bcoz Funtional INterface contain only SAM 
+public interface Child extden MyInterface
+{
+default void method();
+static void sthid();
+}
+
+
+JAVA8 FUCNTIONAL INTERFACE
+============================
+Java 8 has built in function interface..
+Predicate-> test()    BiPredicate->test()
+function->apply()     BiFunction -apply()
+consumer->accept()    BiConsumer-> accept()
+Supplier->get()
+
+
+
+
+

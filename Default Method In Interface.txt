@@ -1,0 +1,73 @@
+
+Default MEthod  in Interface
+=============================
+
+what is default method in java interface?
+==========================================
+default method is a non abstract method
+it is always provided with a default implementation
+it is declared using default keyword
+default method is by default available to the implementing class
+default method is an option method , means implementing
+class may or not override the default method.
+
+
+package com.function;
+
+interface MyInterface
+{
+	public void test();// it is a abstract method 
+	 default public void defaultMethod() // it is a non abstract method 
+	 {
+		 System.out.println("it is default method...");
+	 }
+	
+	
+	
+}
+
+public class DefaultMethod implements MyInterface {
+	
+	public static void main(String[] args) {
+		DefaultMethod d=new DefaultMethod();
+		d.test();
+		d.defaultMethod();
+	}
+
+	@Override
+	public void test() {
+		System.out.println("Implementing Test method...");
+		
+	}
+// if want to override default method then u can override
+public void defaultMethod() // it is a override non abstract method 
+	 {
+		 System.out.println("it is override default method...");
+	 }
+
+}
+
+.....................
+is it possible to have multiple default mehtod in interface?
+yes
+
+
+interface MyInterface
+{
+	public void test();// it is a abstract method 
+	 default public void defaultMethod() // it is a non abstract method 
+	 {
+		 System.out.println("it is default method...");
+	 }
+	 default public void defaultMethod1() // it is a non abstract method 
+	 {
+		 System.out.println("it is default111 method...");
+	 }
+	
+	
+	
+}
+
+what is the use of default method in interface?
+-----------------------------------------------
+default method enable you to add new functionily to the interface
